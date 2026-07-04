@@ -1,0 +1,26 @@
+{
+    "session_id": "test",
+    
+    "audit_logs":{
+        "2024-06-01T12:00:00Z": {
+            "action": "start",
+            "description": "User logged in successfully"
+        },
+        "2024-06-01T12:05:00Z": {
+            "action": "exit",
+            "description": "User accessed resource 'test_resource'"
+        }
+    },
+    "security_events": {
+        "2024-06-01T12:10:00Z": {
+            "event_type": "login_attempt",
+            "description": "test_user",
+            "success": true
+        },
+        "2024-06-01T12:15:00Z": {
+            "event_type": "data_access",
+            "description": "test_user",
+            "resource": "test_resource"
+        }
+    }
+}
