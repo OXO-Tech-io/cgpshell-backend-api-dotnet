@@ -1,105 +1,192 @@
-CGP Exam Backend API
-Overview
+# CGP Exam Backend API
 
-CGP Exam Backend is a .NET Web API that manages secure online examination sessions. It receives security events and audit logs from the CGP Exam Shell, stores them in memory, generates a consolidated examination report, and exposes APIs for external systems such as the Bot Assessment platform.
+## Overview
 
-The backend is responsible for:
+CGP Exam Backend is an ASP.NET Core Web API for secure online examinations. It manages examination sessions, records security events and audit logs, calculates risk scores, generates consolidated exam reports, and supports real-time communication with external systems using SignalR.
 
-Managing examination sessions
-Recording security events
-Recording audit logs
-Calculating examination risk
-Generating a final examination report
-Providing a single endpoint for retrieving all examination logs
-Supporting real-time integration with external systems (SignalR)
-Architecture
-CGP Exam Shell
-        │
-        ├──────────────► Create Session
-        ├──────────────► Security Events API
-        ├──────────────► Audit Logs API
-        ▼
-CGP Exam Backend
-        ├── Stores Session
-        ├── Stores Security Events
-        ├── Stores Audit Logs
-        ├── Calculates Risk Score
-        └── Generates Final Exam Report
-        ▼
-Bot Assessment Frontend
-Technologies
-ASP.NET Core Web API
-C#
-.NET
-SignalR
-Swagger / OpenAPI
-Features
-Create examination sessions
-Record security events
-Record audit logs
-Risk score calculation
-Final examination report generation
-Query exam logs using:
-Exam ID
-Student ID
-Session Token
-Ready for real-time SignalR notifications
-Setup & Run
-Build Project
+---
+
+## Features
+
+- Create examination sessions
+- Record security events
+- Record audit logs
+- Generate consolidated exam reports
+- Calculate examination risk scores
+- Retrieve reports using:
+  - Exam ID
+  - Student ID
+  - Session Token
+- SignalR support for real-time notifications
+
+---
+
+## Technologies
+
+- ASP.NET Core Web API
+- .NET
+- C#
+- SignalR
+- Swagger / OpenAPI
+
+---
+
+# Prerequisites
+
+Install:
+
+- .NET SDK (9/10 or the version used by the project)
+- Visual Studio 2022 or VS Code
+
+Verify installation:
+
+```bash
+dotnet --version
+```
+
+---
+
+# Clone the Repository
+
+```bash
+git clone https://github.com/your-username/CGPExamBackend.git
+cd CGPExamBackend
+```
+
+---
+
+# Install Packages
+
+Restore all NuGet packages:
+
+```bash
+dotnet restore
+```
+
+If you are creating the project from scratch, install the required packages:
+
+```bash
+dotnet add package Swashbuckle.AspNetCore
+dotnet add package Microsoft.AspNetCore.SignalR
+dotnet add package Microsoft.AspNetCore.OpenApi
+```
+
+---
+
+# Build the Project
+
+```bash
 dotnet build
-Run Project
+```
+
+---
+
+# Run the API
+
+```bash
 dotnet run
+```
 
-API will start on:
+The API will typically be available at:
 
+```
 http://localhost:5222
-API Endpoints
-1. Create Session
+```
 
-POST
+Swagger UI:
 
-/api/sessions
-2. Record Security Event
+```
+http://localhost:5222/swagger
+```
 
-POST
+---
 
-/api/security-events
-3. Record Audit Log
+# API Endpoints
 
-POST
+## Create Session
 
-/api/audit-logs
-4. Retrieve Final Examination Report
+**POST**
 
-GET
+```
+POST /api/sessions
+```
 
-/audit/exam-logs
-Query Parameters
-examId
-studentId
-sessionToken
+---
+
+## Record Security Event
+
+**POST**
+
+```
+POST /api/security-events
+```
+
+---
+
+## Record Audit Log
+
+**POST**
+
+```
+POST /api/audit-logs
+```
+
+---
+
+## Retrieve Final Exam Report
+
+**GET**
+
+```
+GET /audit/exam-logs
+```
+
+### Query Parameters
+
+| Parameter | Description |
+|----------|-------------|
+| examId | Examination ID |
+| studentId | Student ID |
+| sessionToken | Session Token |
 
 Example:
 
+```
 GET /audit/exam-logs?examId=59&studentId=991a3f43-10d3-4bd7-828b-9a4c779e4bdb&sessionToken=5b9cf587-9669-48ff-9c83-a9e4fb3d5e64
-Example Response
-{
-  "examId": "59",
-  "studentId": "991a3f43-10d3-4bd7-828b-9a4c779e4bdb",
-  "sessionToken": "5b9cf587-9669-48ff-9c83-a9e4fb3d5e64",
-  "securityEvents": [],
-  "auditLogs": []
-}
-Security Events
-Tab Switch
-Print Screen Attempt
-Alt + Tab Attempt
-Multiple Monitor Detection
-Audit Logs
-Exam Started
-Exam Cancelled
-Exam Submitted
-Risk Assessment
-0–19: CLEAN
-20–49: WARNING
-50+: FLAGGED
+```
+
+---
+
+# Architecture
+
+```
+CGP Exam Shell
+        │
+        ├── Create Session
+        ├── Security Events
+        ├── Audit Logs
+        ▼
+CGP Exam Backend
+        ├── Session Management
+        ├── Risk Calculation
+        ├── Report Generation
+        ▼
+Bot Assessment Frontend
+```
+
+---
+
+# Future Improvements
+
+- SQL Server/PostgreSQL
+- JWT Authentication
+- API Key Security
+- Advanced Risk Analysis
+- PDF Report Export
+- Cloud Deployment
+
+---
+
+# License
+
+This project is intended for educational and internal organizational use.
