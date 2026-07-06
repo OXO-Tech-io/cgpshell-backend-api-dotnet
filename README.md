@@ -178,4 +178,4 @@ Bot Assessment Frontend
 
 # License
 
-This project is intended for educational and internal organizational use.
+This API is for the CGPShell and its development, which will be integrated with the Bot Assessment 
