@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CGPExamBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+671e187af92b024047b7792946302ec0df169e62")]
 [assembly: System.Reflection.AssemblyProductAttribute("CGPExamBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CGPExamBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
