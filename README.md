@@ -176,17 +176,6 @@ Bot Assessment Frontend
 
 ---
 
-# Future Improvements
-
-- SQL Server/PostgreSQL
-- JWT Authentication
-- API Key Security
-- Advanced Risk Analysis
-- PDF Report Export
-- Cloud Deployment
-
----
-
 # License
 
 This project is intended for educational and internal organizational use.
